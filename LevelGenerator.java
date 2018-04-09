@@ -5,8 +5,9 @@ public class LevelGenerator {
 	public static void main(String[] args) {
 		if (args.length == 2) {
 			int size = Integer.parseInt(args[0]);
+			int movesToComplete = Integer.parseInt(args[1]);
 			int ret = 0;
-			while (ret < Integer.parseInt(args[1])) {
+			while (ret < movesToComplete) {
 				int[][] grid = new int[size][size];
 				setUpGrid(grid);
 				shuffle(grid);
@@ -94,12 +95,12 @@ public class LevelGenerator {
 	public static void shuffle(int[][] grid) {
 		int last = 3;
 		for (int i = 0; i < 50; i++) {
-			int x = 0;
+			int choice = 0;
 			do {
-				x = (int)(Math.random() * 4);
-			} while (last % 2 == x % 2);
-			last = x;
-			switch (x) {
+				choice = (int)(Math.random() * 4);
+			} while (last % 2 == choice % 2);
+			last = choice;
+			switch (choice) {
 				case 0: moveUp(grid); break;
 				case 2: moveDown(grid); break;
 				case 1: moveLeft(grid); break;
