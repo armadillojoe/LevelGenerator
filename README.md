@@ -169,7 +169,7 @@ public static boolean isGoal(int[][] grid) {
 ```
 
 If it is, then this level has been solved, and you can print out the number of moves it took to solve. (Also printing the number of states seen just for my own curiosity).
-If it is not the goal state, then we have move work to do. We get the possible next states from this method:
+If it is not the goal state, then we have more work to do. We get the possible next states from this method:
 
 ```java
 public static Set<State> getNextStates(State curr) {
@@ -183,6 +183,7 @@ public static Set<State> getNextStates(State curr) {
 ```
 
 And if each state is not already in the seen set, then we add it to the work queue and the while loop continues. Eventually this method finishes and returns the number of moves needed to solve the level, or 0 if the level is unsolvable.
+
 **Note:** Java passes arrays by reference, so when we create new states, we need to copy the grid (using our deepCopy method, pretty trivial, check code if interested) before passing it to a move function, or else we would always just be modifying the original grid, which would cause us issues.
 
 ## Finishing Up
